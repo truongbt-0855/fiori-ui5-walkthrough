@@ -1,0 +1,21 @@
+{
+  "name": "fiori-ui5-walkthrough",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ui5 serve -o index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truongbt-0855/fiori-ui5-walkthrough.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truongbt-0855/fiori-ui5-walkthrough/issues"
+  },
+  "homepage": "https://github.com/truongbt-0855/fiori-ui5-walkthrough#readme",
+  "description": ""
+}
