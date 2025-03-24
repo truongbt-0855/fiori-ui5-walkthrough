@@ -1,0 +1,16 @@
+<mvc:View
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Text text="Hello World from XML"/>
+</mvc:View>
+
+<!--<sap.ui.core.mvc:View>-->
+<!--   <sap.m:Text text="werwerwer"/>-->
+<!--</sap.ui.core.mvc:View>-->
+
+<!--<View-->
+<!--   xmlns:m="sap.m"-->
+<!--   xmlns="sap.ui.core.mvc"-->
+<!--&gt;-->
+<!--<m:Text text="Hello World from XML"/>-->
+<!--</View>-->
