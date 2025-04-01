@@ -4,12 +4,15 @@
     controllerName="ui5.walkthrough.controller.App"
 >
   <Text text="Hello World from XML"/>
-  <Button text="Say Hello" press="onShowHello"/>
+  <Button
+      text="{model_i18n>showHelloButtonText}"
+      press="onShowHello"
+  />
   <Input
-    value="{/recipient/name}"
-    description="Hello {/recipient/name}"
-    valueLiveUpdate="true"
-    width="60%"
+      value="{/recipient/name}"
+      description="Hello {/recipient/name}"
+      valueLiveUpdate="true"
+      width="60%"
   />
 </mvc:View>
 
