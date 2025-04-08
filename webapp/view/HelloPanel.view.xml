@@ -11,6 +11,7 @@
     <content>
       <Button
         id="helloDialogButton"
+        icon="sap-icon://world"
         text="{model_i18n>openDialogBtnText}"
         press="onOpenDialog"
         class="sapUiSmallMarginEnd"
