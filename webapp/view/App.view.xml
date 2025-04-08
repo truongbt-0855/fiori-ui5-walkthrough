@@ -9,13 +9,20 @@
       <pages>
         <Page title="{model_i18n>homePageTitle}">
           <content>
-            <Panel headerText="{model_i18n>helloPanelTitle}">
+            <Panel
+              headerText="{model_i18n>helloPanelTitle}"
+              class="sapUIResponsiveMargin"
+              width="auto"
+            >
               <content>
-                <Text text="Hello World from XML"/>
                 <Button
                   text="{model_i18n>showHelloButtonText}"
                   press="onShowHello"
+                  class="sapUiSmallMarginEnd"
                 />
+                <Text
+                  text="Hello {/recipient/name}"
+                  class="sapUiSmallMargin" />
                 <Input
                   value="{/recipient/name}"
                   description="Hello {/recipient/name}"
