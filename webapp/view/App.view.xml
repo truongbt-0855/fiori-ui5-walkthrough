@@ -4,29 +4,31 @@
   controllerName="ui5.walkthrough.controller.App"
   displayBlock="true"
 >
-  <App>
-    <pages>
-      <Page title="{model_i18n>homePageTitle}">
-        <content>
-          <Panel headerText="{model_i18n>helloPanelTitle}">
-            <content>
-              <Text text="Hello World from XML"/>
-              <Button
-                text="{model_i18n>showHelloButtonText}"
-                press="onShowHello"
-              />
-              <Input
-                value="{/recipient/name}"
-                description="Hello {/recipient/name}"
-                valueLiveUpdate="true"
-                width="60%"
-              />
-            </content>
-          </Panel>
-        </content>
-      </Page>
-    </pages>
-  </App>
+  <Shell>
+    <App>
+      <pages>
+        <Page title="{model_i18n>homePageTitle}">
+          <content>
+            <Panel headerText="{model_i18n>helloPanelTitle}">
+              <content>
+                <Text text="Hello World from XML"/>
+                <Button
+                  text="{model_i18n>showHelloButtonText}"
+                  press="onShowHello"
+                />
+                <Input
+                  value="{/recipient/name}"
+                  description="Hello {/recipient/name}"
+                  valueLiveUpdate="true"
+                  width="60%"
+                />
+              </content>
+            </Panel>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
 </mvc:View>
 
   <!--<sap.ui.core.mvc:View>-->
