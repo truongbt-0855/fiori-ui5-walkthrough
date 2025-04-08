@@ -5,13 +5,6 @@ sap.ui.define([
   'use strict';
 
   return Controller.extend('ui5.walkthrough.controller.App', {
-    onShowHello() {
-      // read msg from i18n model
-      const oBundle = this.getView().getModel('model_i18n').getResourceBundle();
-      const sRecipient = this.getView().getModel().getProperty('/recipient/name');
-      const sMsg = oBundle.getText('helloMsg', [sRecipient]);
 
-      MessageToast.show(sMsg);
-    }
   });
 });

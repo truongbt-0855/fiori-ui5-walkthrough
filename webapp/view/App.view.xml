@@ -5,33 +5,10 @@
   displayBlock="true"
 >
   <Shell>
-    <App>
+    <App class="myAppDemoWT">
       <pages>
         <Page title="{model_i18n>homePageTitle}">
-          <content>
-            <Panel
-              headerText="{model_i18n>helloPanelTitle}"
-              class="sapUIResponsiveMargin"
-              width="auto"
-            >
-              <content>
-                <Button
-                  text="{model_i18n>showHelloButtonText}"
-                  press="onShowHello"
-                  class="sapUiSmallMarginEnd"
-                />
-                <Text
-                  text="Hello {/recipient/name}"
-                  class="sapUiSmallMargin" />
-                <Input
-                  value="{/recipient/name}"
-                  description="Hello {/recipient/name}"
-                  valueLiveUpdate="true"
-                  width="60%"
-                />
-              </content>
-            </Panel>
-          </content>
+          <mvc:XMLView viewName="ui5.walkthrough.view.HelloPanel" />
         </Page>
       </pages>
     </App>
