@@ -26,6 +26,7 @@
           }
         }"
         numberUnit="{view_data>/currency}"
+        numberState="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
       />
     </items>
   </List>
