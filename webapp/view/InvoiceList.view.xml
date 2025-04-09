@@ -27,7 +27,19 @@
         }"
         numberUnit="{view_data>/currency}"
         numberState="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
-      />
+      >
+        <firstStatus>
+          <ObjectStatus
+            core:require="{
+              Formatter: 'ui5/walkthrough/model/formatter'
+            }"
+            text="{
+              path: 'invoice_data>Status',
+              formatter: 'Formatter.statusText.bind($controller)'
+            }"
+          />
+        </firstStatus>
+      </ObjectListItem>
     </items>
   </List>
 </mvc:View>
