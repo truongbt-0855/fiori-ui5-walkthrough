@@ -1,8 +1,12 @@
 <mvc:View
+  controllerName="ui5.walkthrough.controller.Detail"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
   <Page
     title="{model_i18n>detailPageTitle}">
-    <ObjectHeader title="Invoice"/>
+    <ObjectHeader
+      intro="{invoice_detail>ShipperName}"
+      title="{invoice_detail>ProductName}"
+    />
   </Page>
 </mvc:View>
