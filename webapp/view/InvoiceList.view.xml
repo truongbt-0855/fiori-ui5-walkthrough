@@ -45,6 +45,8 @@
         }"
         numberUnit="{view_data>/currency}"
         numberState="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+        type="Navigation"
+        press="onPress"
       >
         <firstStatus>
           <ObjectStatus
