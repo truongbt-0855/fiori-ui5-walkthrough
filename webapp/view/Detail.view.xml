@@ -5,8 +5,8 @@
   <Page
     title="{model_i18n>detailPageTitle}">
     <ObjectHeader
-      intro="{invoice_detail>ShipperName}"
-      title="{invoice_detail>ProductName}"
+      intro="{invoice_data>ShipperName}"
+      title="{invoice_data>ProductName}"
     />
   </Page>
 </mvc:View>
