@@ -4,7 +4,7 @@
   xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc"
 >
-  <List
+  <Table
     id="invoiceListId"
     headerText="{model_i18n>invoiceListTitle}"
     class="sapUiResponsiveMargin"
@@ -19,47 +19,90 @@
     }">
     <headerToolbar>
       <Toolbar>
-        <Title text="{model_i18n>invoiceListTitle}" />
-        <ToolbarSpacer />
+        <Title text="{model_i18n>invoiceListTitle}"/>
+        <ToolbarSpacer/>
         <SearchField
           width="50%"
           search="onFilterInvoices"
         />
       </Toolbar>
     </headerToolbar>
+
+    <columns>
+      <Column
+        hAlign="End"
+        minScreenWidth="Small"
+        demandPopin="true"
+        width="5em"
+      >
+        <Text text="{model_i18n>columnQuantity}"/>
+      </Column>
+      <Column>
+        <Text text="{model_i18n>columnName}"/>
+      </Column>
+      <Column
+        minScreenWidth="Small"
+        demandPopin="true"
+      >
+        <Text text="{model_i18n>columnStatus}"/>
+      </Column>
+      <Column
+        minScreenWidth="Tablet"
+        demandPopin="false"
+      >
+        <Text text="{model_i18n>columnSupplier}"/>
+      </Column>
+      <Column
+        hAlign="End"
+      >
+        <Text text="{model_i18n>columnPrice}"/>
+      </Column>
+    </columns>
     <items>
-      <ObjectListItem
-        core:require="{
-          Currency: 'sap/ui/model/type/Currency'
-        }"
-        title="{invoice_data>Quantity} x {invoice_data>ProductName}"
-        number="{
-          parts: [
-            'invoice_data>ExtendedPrice',
-            'view_data>/currency'
-          ],
-          type: 'Currency',
-          formatOptions: {
-            showMeasure: false
-          }
-        }"
-        numberUnit="{view_data>/currency}"
-        numberState="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+      <ColumnListItem
         type="Navigation"
         press="onPress"
       >
-        <firstStatus>
-          <ObjectStatus
+        <cells>
+          <ObjectNumber
+            number="{invoice_data>Quantity}"
+            emphasized="false"
+          />
+          <ObjectIdentifier title="{invoice_data>ProductName}"/>
+          <Text
             core:require="{
               Formatter: 'ui5/walkthrough/model/formatter'
             }"
             text="{
-              path: 'invoice_data>Status',
+              parts: [
+                'invoice_data>Status',
+                'model_i18n>invoiceStatusA',
+                'model_i18n>invoiceStatusB',
+                'model_i18n>invoiceStatusC'
+              ],
               formatter: 'Formatter.statusText.bind($controller)'
             }"
           />
-        </firstStatus>
-      </ObjectListItem>
+          <Text text="{invoice_data>ShipperName}"/>
+          <ObjectNumber
+            core:require="{
+              Currency: 'sap/ui/model/type/Currency'
+            }"
+            number="{
+              parts: [
+                'invoice_data>ExtendedPrice',
+                'view>/currency'
+              ],
+              type: 'Currency',
+              formatOptions: {
+                showMeasure: false
+              }
+            }"
+            unit="{view>/currency}"
+            state="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+          />
+        </cells>
+      </ColumnListItem>
     </items>
-  </List>
+  </Table>
 </mvc:View>
