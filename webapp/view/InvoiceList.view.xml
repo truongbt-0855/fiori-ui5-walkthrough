@@ -4,12 +4,22 @@
   xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc"
 >
-  <Table
-    id="invoiceListId"
-    headerText="{model_i18n>invoiceListTitle}"
-    class="sapUiResponsiveMargin"
-    width="auto"
-    items="{
+  <Panel accessibleRole="Region">
+    <headerToolbar>
+      <Toolbar>
+        <Title text="{model_i18n>invoiceListTitle}"/>
+        <ToolbarSpacer/>
+        <SearchField
+          width="50%"
+          search="onFilterInvoices"/>
+      </Toolbar>
+    </headerToolbar>
+    <Table
+      id="invoiceListId"
+      headerText="{model_i18n>invoiceListTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      items="{
       path: 'invoice_data>/Invoices',
       sorter: {
         path: 'ShipperName',
@@ -17,63 +27,63 @@
         group: true
       }
     }">
-    <headerToolbar>
-      <Toolbar>
-        <Title text="{model_i18n>invoiceListTitle}"/>
-        <ToolbarSpacer/>
-        <SearchField
-          width="50%"
-          search="onFilterInvoices"
-        />
-      </Toolbar>
-    </headerToolbar>
-
-    <columns>
-      <Column
-        hAlign="End"
-        minScreenWidth="Small"
-        demandPopin="true"
-        width="5em"
-      >
-        <Text text="{model_i18n>columnQuantity}"/>
-      </Column>
-      <Column>
-        <Text text="{model_i18n>columnName}"/>
-      </Column>
-      <Column
-        minScreenWidth="Small"
-        demandPopin="true"
-      >
-        <Text text="{model_i18n>columnStatus}"/>
-      </Column>
-      <Column
-        minScreenWidth="Tablet"
-        demandPopin="false"
-      >
-        <Text text="{model_i18n>columnSupplier}"/>
-      </Column>
-      <Column
-        hAlign="End"
-      >
-        <Text text="{model_i18n>columnPrice}"/>
-      </Column>
-    </columns>
-    <items>
-      <ColumnListItem
-        type="Navigation"
-        press="onPress"
-      >
-        <cells>
-          <ObjectNumber
-            number="{invoice_data>Quantity}"
-            emphasized="false"
+      <headerToolbar>
+        <Toolbar>
+          <Title text="{model_i18n>invoiceListTitle}"/>
+          <ToolbarSpacer/>
+          <SearchField
+            width="50%"
+            search="onFilterInvoices"
           />
-          <ObjectIdentifier title="{invoice_data>ProductName}"/>
-          <Text
-            core:require="{
+        </Toolbar>
+      </headerToolbar>
+
+      <columns>
+        <Column
+          hAlign="End"
+          minScreenWidth="Small"
+          demandPopin="true"
+          width="5em"
+        >
+          <Text text="{model_i18n>columnQuantity}"/>
+        </Column>
+        <Column>
+          <Text text="{model_i18n>columnName}"/>
+        </Column>
+        <Column
+          minScreenWidth="Small"
+          demandPopin="true"
+        >
+          <Text text="{model_i18n>columnStatus}"/>
+        </Column>
+        <Column
+          minScreenWidth="Tablet"
+          demandPopin="false"
+        >
+          <Text text="{model_i18n>columnSupplier}"/>
+        </Column>
+        <Column
+          hAlign="End"
+        >
+          <Text text="{model_i18n>columnPrice}"/>
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem
+          type="Navigation"
+          press="onPress"
+        >
+          <cells>
+            <ObjectNumber
+              number="{invoice_data>Quantity}"
+              emphasized="false"
+            />
+            <ObjectIdentifier title="{invoice_data>ProductName}"/>
+            <Text
+              core:require="{
               Formatter: 'ui5/walkthrough/model/formatter'
             }"
-            text="{
+              text="{
               parts: [
                 'invoice_data>Status',
                 'model_i18n>invoiceStatusA',
@@ -82,13 +92,13 @@
               ],
               formatter: 'Formatter.statusText.bind($controller)'
             }"
-          />
-          <Text text="{invoice_data>ShipperName}"/>
-          <ObjectNumber
-            core:require="{
+            />
+            <Text text="{invoice_data>ShipperName}"/>
+            <ObjectNumber
+              core:require="{
               Currency: 'sap/ui/model/type/Currency'
             }"
-            number="{
+              number="{
               parts: [
                 'invoice_data>ExtendedPrice',
                 'view_data>/currency'
@@ -98,11 +108,12 @@
                 showMeasure: false
               }
             }"
-            unit="{view_data>/currency}"
-            state="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
-          />
-        </cells>
-      </ColumnListItem>
-    </items>
-  </Table>
+              unit="{view_data>/currency}"
+              state="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+            />
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </Panel>
 </mvc:View>
