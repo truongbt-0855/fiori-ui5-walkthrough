@@ -7,6 +7,8 @@
     headerText="{model_i18n>helloPanelTitle}"
     class="sapUIResponsiveMargin"
     width="auto"
+    expandable="{device>/system/phone}"
+    expanded="{= !${device>/system/phone} }"
   >
     <content>
       <Button
@@ -14,7 +16,7 @@
         icon="sap-icon://world"
         text="{model_i18n>openDialogBtnText}"
         press="onOpenDialog"
-        class="sapUiSmallMarginEnd"
+        class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
       />
       <Button
         text="{model_i18n>showHelloButtonText}"

@@ -91,14 +91,14 @@
             number="{
               parts: [
                 'invoice_data>ExtendedPrice',
-                'view>/currency'
+                'view_data>/currency'
               ],
               type: 'Currency',
               formatOptions: {
                 showMeasure: false
               }
             }"
-            unit="{view>/currency}"
+            unit="{view_data>/currency}"
             state="{= ${invoice_data>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
           />
         </cells>
